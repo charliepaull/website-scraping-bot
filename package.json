@@ -1,0 +1,26 @@
+{
+  "name": "find-apartment",
+  "version": "1.0.0",
+  "description": "find an apartment using a bot. will scrape information from sites.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "keywords": [
+    "none"
+  ],
+  "author": "charlie",
+  "license": "ISC",
+  "dependencies": {
+    "bitly": "^7.1.0",
+    "checksum": "^0.1.1",
+    "cheerio": "^1.0.0-rc.3",
+    "dotenv": "^8.2.0",
+    "request-promise": "^4.2.5",
+    "twilio": "^3.48.0"
+  }
+}
