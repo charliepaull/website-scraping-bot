@@ -107,12 +107,8 @@ setInterval(async () => {
 }, 10000);
 
 
-// // Download the helper library from https://www.twilio.com/docs/node/install
-// // Your Account Sid and Auth Token from twilio.com/console
-// // DANGER! This is insecure. See http://twil.io/secure
-// const accountSid = 'AC08113eabf96c276230bf1c0919ba2d2d';
-// const authToken = '578fe428921304d7eefcb4df96385a83';
-// const client = require('twilio')(accountSid, authToken);
+// const accountSid = process.env.TWILIO_SID;
+// const authToken = process.env.TWILIO_AUTH_TOKEN;
 
 // client.messages
 //       .create({body: `Matt Asher has a skinny belly at ${zillowURL}, tehe.`, from: '+13104608664', to: '+13104608664'})
