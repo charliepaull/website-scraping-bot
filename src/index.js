@@ -19,16 +19,16 @@ let bitlyURL;
 // from bitly npm package documentation
 async function init() {
     try {
-      bitlyURL = await bitly.shorten(zillowURL);
+        bitlyURL = await bitly.shorten(zillowURL);
     } catch (error) {
-      throw error;
+        throw error;
     }
-    return bitlyURL;
+        return bitlyURL.link;
 }
   
 // calling method to create short bitly link
 init();
-// console.log(bitlyURL.link) // this isn't defined in scope
+
 /*
 Ok great, we’re getting a list of unique ID numbers. These ID’s are the only information we care about on the page.
 So let’s go back to our original plan of comparing hashes, except we’ll only hash the unique IDs:
@@ -96,20 +96,12 @@ function SMS({ body, to, from }) {
 setInterval(async () => {
     // if checkURL is true, send a text message!
     if (await checkURL(zillowURL)) {
-        console.log("Found a change! Sending updated text now..")
+        console.log("Found a change! Sending updated text now..");
 
         SMS({
-            body: `Look at these apartment listings! ${bitlyURL}`,
+            body: `Look at these apartment listings! ${bitlyURL.link}`,
             to: process.env.CP_NUMBER,
             from: process.env.TWILIO_NUMBER
         });
     }
 }, 10000);
-
-
-// const accountSid = process.env.TWILIO_SID;
-// const authToken = process.env.TWILIO_AUTH_TOKEN;
-
-// client.messages
-//       .create({body: `Matt Asher has a skinny belly at ${zillowURL}, tehe.`, from: '+13104608664', to: '+13104608664'})
-//       .then(message => console.log(message.sid));
